@@ -19,12 +19,18 @@ const movieTvTitleFetch = (title) => {
       dataArr.forEach((e) => {
         const div = document.createElement("div");
         div.innerHTML = `
-                <img src=${e.i.imageUrl} />
-                <h3>${e.l}</h3>
-                <p>Media ID: ${e.id}</p>
-                <p>Media Type: ${e.q}</p>
-                <p>Media Type: ${e.yr}</p>
-                <button>Where to Watch</button>
+        <div class="col">
+            <div class="card">
+            <img src=${e.i.imageUrl} class="card-img-top" alt=${e.l}>
+                <div class="card-body">
+                    <h5 class="card-title">${e.l}</h5>
+                    <p>Media Type: ${e.q}</p>
+                    <p>Media Type: ${e.yr}</p>
+                    <p id='media-id' hidden='true'>Media ID: ${e.id}</p>
+                    <button>Where to Watch</button>
+                </div>
+            </div>
+        </div>
                 `;
         mediaContainer.appendChild(div);
       });
@@ -34,7 +40,6 @@ const movieTvTitleFetch = (title) => {
 input.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
-    console.log("enter");
     movieTvTitleFetch(input.value);
   }
 });
