@@ -7,3 +7,26 @@
 /* #00B343 */
 /* #009555 */
 /* #007761 */
+
+html, body {
+    max-width: 100%;
+
+}
+body{
+    overflow-x: hidden;
+}
+.card-img-top{
+    width: 100%;
+    height: 25vw;
+    object-fit: contain;
+}
+
+.card-body{
+    text-align: center;
+}
+
+.card-title{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
