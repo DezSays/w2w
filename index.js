@@ -1,8 +1,6 @@
 // JavaScript
 
-// Netflix, Amazon Prime Video, Hulu, Disney+, HBO Max, Peacock, Paramount+, Starz, Showtime, Apple TV+
-
-let motnButton = document.getElementById('motn-fetch-btn')
+let motnButton = document.getElementById('motn-fetch-btn');
 const imdbFetchBtn = document.getElementById("imdb-fetch-btn");
 const mediaContainer = document.getElementById("media-container");
 let input = document.querySelector("input");
@@ -10,7 +8,7 @@ let input = document.querySelector("input");
 let services = [];
 let info = [];
 
-motnButton.addEventListener('click', () => {
+motnButton.addEventListener('click', (ttcode) => {
     const options = {
         method: 'GET',
         headers: {
@@ -19,31 +17,64 @@ motnButton.addEventListener('click', () => {
         }
     };
     
-    fetch('https://streaming-availability.p.rapidapi.com/v2/get/basic?country=us&imdb_id=tt1877830', options)
+    fetch(`https://streaming-availability.p.rapidapi.com/v2/get/basic?country=us&imdb_id=${ttcode}`, options)
         .then(response => response.json())
         .then(response => {
             for (const property in response.result.streamingInfo.us) {
-                // console.log(property)
-                services.push(property)
+                console.log(property)
+                // services.push(property)
             }
 
             // console.log(services)
-            for (services in response.result.streamingInfo.us) {
-                for (const object in response.result.streamingInfo.us[services]) {
-                    // console.log(object)
-                    for (const type in response.result.streamingInfo.us[services][object]) {
-                        console.log(response.result.streamingInfo.us[services][object].link)
-                    }
-                }
-                // console.log(services, response.result.streamingInfo.us[services])
-                // info.push(services, response.result.streamingInfo.us[services])
-            }
+            // for (services in response.result.streamingInfo.us) {
+            //     for (const object in response.result.streamingInfo.us[services]) {
+            //         // console.log(object)
+            //         for (const type in response.result.streamingInfo.us[services][object]) {
+            //             console.log(response.result.streamingInfo.us[services][object].link)
+            //         }
+            //     }
+            //     // console.log(services, response.result.streamingInfo.us[services])
+            //     // info.push(services, response.result.streamingInfo.us[services])
+            // }
             // console.log(types)
             // console.log(response.result.streamingInfo.us.prime)
         })
         .catch(err => console.error(err));
 })
 
+let motnFetch = (ttcode) => {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': `${motnKey}`,
+            'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+        }
+    };
+    
+    fetch(`https://streaming-availability.p.rapidapi.com/v2/get/basic?country=us&imdb_id=${ttcode}`, options)
+        .then(response => response.json())
+        .then(response => {
+            for (const property in response.result.streamingInfo.us) {
+                console.log(property)
+                // services.push(property)
+            }
+
+            // console.log(services)
+            // for (services in response.result.streamingInfo.us) {
+            //     for (const object in response.result.streamingInfo.us[services]) {
+            //         // console.log(object)
+            //         for (const type in response.result.streamingInfo.us[services][object]) {
+            //             console.log(response.result.streamingInfo.us[services][object].link)
+            //         }
+            //     }
+            //     // console.log(services, response.result.streamingInfo.us[services])
+            //     // info.push(services, response.result.streamingInfo.us[services])
+            // }
+            // console.log(types)
+            // console.log(response.result.streamingInfo.us.prime)
+        })
+        .catch(err => console.error(err));
+}
 
 const movieTvTitleFetch = (title) => {
   const options = {
@@ -70,7 +101,7 @@ const movieTvTitleFetch = (title) => {
                     <p>Media Type: ${e.q}</p>
                     <p>Media Type: ${e.yr}</p>
                     <p id='media-id' hidden='true'>Media ID: ${e.id}</p>
-                    <button>Where to Watch</button>
+                    <button onclick='motnFetch("${e.id}")'>Where to Watch</button>
                 </div>
             </div>
         </div>
