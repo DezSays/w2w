@@ -17,9 +17,10 @@ motnButton.addEventListener('click', (ttcode) => {
         }
     };
     
-    fetch(`https://streaming-availability.p.rapidapi.com/v2/get/basic?country=us&imdb_id=${ttcode}`, options)
+    fetch(`https://streaming-availability.p.rapidapi.com/v2/get/basic?country=us&imdb_id=tt1877830`, options)
         .then(response => response.json())
         .then(response => {
+            console.log("resonse", response)
             for (const property in response.result.streamingInfo.us) {
                 console.log(property)
                 // services.push(property)
