@@ -90,7 +90,6 @@ const movieTvTitleFetch = (title) => {
                 <div id="card-div-id" class="card-body">
                     <h5 class="card-title">${e.l}</h5>
                     <p>Starring: ${e.s}</p>
-                    <p id='media-id' hidden='true'>Media ID: ${e.id}</p>
                     <button type="button" onclick='motnFetch("${e.id}")'>Where to Watch</button>
                     <div id="wtw-${e.id}"></div>
                 </div>
