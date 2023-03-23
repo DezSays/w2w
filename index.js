@@ -46,15 +46,20 @@ let motnFetch = (ttcode) => {
   )
     .then((response) => response.json())
     .then((response) => {
-      for (const property in response.result.streamingInfo.us) {
-        console.log(property);
-      }
+      let wtwDiv = document.getElementById(`wtw-${ttcode}`);
+      let wtwTrailer = document.createElement("div");
+      wtwTrailer.innerHTML = `
+        <button>
+          <a href="${response.result.youtubeTrailerVideoLink}" target="_blank">
+            Trailer
+          </a>
+        </button>
+      `;
+      wtwDiv.appendChild(wtwTrailer);
       for (services in response.result.streamingInfo.us) {
         for (const object in response.result.streamingInfo.us[services]) {
           /* Creating a new div element. */
           const newDiv = document.createElement("div");
-          /* Creating a new element with the id of `wtw-movie-id-code` */
-          let wtwDiv = document.getElementById(`wtw-${ttcode}`);
           /* Creating a new div element and adding the innerHTML to it. */
           newDiv.innerHTML = `
                     <button><a href="${response.result.streamingInfo.us[services][object].link}" target="_blank">${services}: ${response.result.streamingInfo.us[services][object].type}</a></button>
@@ -89,9 +94,7 @@ const movieTvTitleFetch = (title) => {
             <img src=${e.i.imageUrl} class="card-img-top" alt=${e.l}>
                 <div id="card-div-id" class="card-body">
                     <h5 class="card-title">${e.l}</h5>
-                    <p>Media Type: ${e.q}</p>
-                    <p>Media Type: ${e.yr}</p>
-                    <p id='media-id' hidden='true'>Media ID: ${e.id}</p>
+                    <p>Starring: ${e.s}</p>
                     <button type="button" onclick='motnFetch("${e.id}")'>Where to Watch</button>
                     <div id="wtw-${e.id}"></div>
                 </div>
