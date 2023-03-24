@@ -8,6 +8,7 @@ let input = document.querySelector("input");
 let services = [];
 let info = [];
 
+// This is a test function so we don't use all of our IMDb calls
 motnButton.addEventListener("click", (ttcode) => {
   const options = {
     method: "GET",
@@ -49,11 +50,22 @@ let motnFetch = (ttcode) => {
       let wtwDiv = document.getElementById(`wtw-${ttcode}`);
       let wtwTrailer = document.createElement("div");
       wtwTrailer.innerHTML = `
-        <button>
-          <a href="${response.result.youtubeTrailerVideoLink}" target="_blank">
-            Trailer
-          </a>
-        </button>
+        <button><a href="#myModal" data-toggle="modal">Watch Trailer</a></button>
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">${response.result.title}</h5>
+                        <button type="button" class="close" data-dismiss="modal" id="youtube-trailer">&times;</button>                
+            </div>
+                    <div class="modal-body">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe id="${response.result.title}" class="embed-responsive-item" width="560" height="315" src="${response.result.youtubeTrailerVideoLink}" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
       `;
       wtwDiv.appendChild(wtwTrailer);
       for (services in response.result.streamingInfo.us) {
