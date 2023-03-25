@@ -31,6 +31,16 @@ motnButton.addEventListener("click", (ttcode) => {
     })
     .catch((err) => console.error(err));
 });
+const test = (frameID) => {
+  console.log(frameID)
+  document.getElementById(`${frameID.id}`).setAttribute('src',' ')
+    console.log('38', tval.src)
+}
+
+const test3 = (frameID, URL) => {
+  console.log(frameID, URL)
+  let tval = document.getElementById(`${frameID}`).setAttribute('src', `${URL}`)
+}
 
 let motnFetch = (ttcode) => {
   const options = {
@@ -50,17 +60,17 @@ let motnFetch = (ttcode) => {
       let wtwDiv = document.getElementById(`wtw-${ttcode}`);
       let wtwTrailer = document.createElement("div");
       wtwTrailer.innerHTML = `
-        <button><a href="#myModal" data-toggle="modal">Watch Trailer</a></button>
+        <button onclick="test3('${response.result.imdbId}','${response.result.youtubeTrailerVideoLink}')"><a href="#myModal" data-toggle="modal">Watch Trailer</a></button>
         <div id="myModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">${response.result.title}</h5>
-                        <button type="button" class="close" data-dismiss="modal" id="youtube-trailer">&times;</button>                
+                        <button type="button" class="close" data-dismiss="modal" id="youtube-trailer" onclick="test(${response.result.imdbId});">&times;</button>                
             </div>
                     <div class="modal-body">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe id="${response.result.title}" class="embed-responsive-item" width="560" height="315" src="${response.result.youtubeTrailerVideoLink}" allowfullscreen></iframe>
+                            <iframe id="${response.result.imdbId}" class="embed-responsive-item" width="560" height="315" src="${response.result.youtubeTrailerVideoLink}" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -68,6 +78,10 @@ let motnFetch = (ttcode) => {
         </div>
       `;
       wtwDiv.appendChild(wtwTrailer);
+
+
+
+
       for (services in response.result.streamingInfo.us) {
         for (const object in response.result.streamingInfo.us[services]) {
           /* Creating a new div element. */
