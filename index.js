@@ -60,8 +60,8 @@ let motnFetch = (ttcode) => {
       let wtwDiv = document.getElementById(`wtw-${ttcode}`);
       let wtwTrailer = document.createElement("div");
       wtwTrailer.innerHTML = `
-        <button onclick="test3('${response.result.imdbId}','${response.result.youtubeTrailerVideoId}')"><a href="#myModal" data-toggle="modal">Watch Trailer</a></button>
-        <div id="myModal" class="modal" data-backdrop="static">
+        <button onclick="test3('${response.result.imdbId}','${response.result.youtubeTrailerVideoId}')"><a href="#id${response.result.imdbId}" data-toggle="modal">Watch Trailer</a></button>
+        <div id="id${response.result.imdbId}" class="modal" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
