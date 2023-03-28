@@ -39,7 +39,7 @@ const test = (frameID) => {
 
 const test3 = (frameID, URL) => {
   console.log(frameID, URL)
-  let tval = document.getElementById(`${frameID}`).setAttribute('src', `${URL}`)
+  let tval = document.getElementById(`${frameID}`).setAttribute('src', `https://www.youtube.com/embed/${URL}`)
 }
 
 let motnFetch = (ttcode) => {
@@ -60,8 +60,8 @@ let motnFetch = (ttcode) => {
       let wtwDiv = document.getElementById(`wtw-${ttcode}`);
       let wtwTrailer = document.createElement("div");
       wtwTrailer.innerHTML = `
-        <button onclick="test3('${response.result.imdbId}','${response.result.youtubeTrailerVideoLink}')"><a href="#myModal" data-toggle="modal">Watch Trailer</a></button>
-        <div id="myModal" class="modal fade">
+        <button onclick="test3('${response.result.imdbId}','${response.result.youtubeTrailerVideoId}')"><a href="#id${response.result.imdbId}" data-toggle="modal">Watch Trailer</a></button>
+        <div id="id${response.result.imdbId}" class="modal" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -70,7 +70,7 @@ let motnFetch = (ttcode) => {
             </div>
                     <div class="modal-body">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe id="${response.result.imdbId}" class="embed-responsive-item" width="560" height="315" src="${response.result.youtubeTrailerVideoLink}" allowfullscreen></iframe>
+                            <iframe id="${response.result.imdbId}" class="embed-responsive-item" width="560" height="315" src="https://ww.youtube.com/embed/${response.result.youtubeTrailerVideoId}" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
