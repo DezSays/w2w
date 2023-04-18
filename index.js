@@ -1,5 +1,3 @@
-// JavaScript
-
 let searchBtn = document.getElementById("search-btn");
 const imdbFetchBtn = document.getElementById("imdb-fetch-btn");
 const mediaContainer = document.getElementById("media-container");
@@ -8,16 +6,18 @@ let input = document.querySelector("input");
 let services = [];
 let info = [];
 
-const test = (frameID) => {
-  console.log(frameID)
-  document.getElementById(`${frameID.id}`).setAttribute('src',' ')
-    console.log('38', tval.src)
-}
+const closeTrailerFunc = (frameID) => {
+  console.log(frameID);
+  document.getElementById(`${frameID.id}`).setAttribute("src", " ");
+  console.log("38", tval.src);
+};
 
-const test3 = (frameID, URL) => {
-  console.log(frameID, URL)
-  let tval = document.getElementById(`${frameID}`).setAttribute('src', `https://www.youtube.com/embed/${URL}`)
-}
+const watchTrailerFunc = (frameID, URL) => {
+  console.log(frameID, URL);
+  let tval = document
+    .getElementById(`${frameID}`)
+    .setAttribute("src", `https://www.youtube.com/embed/${URL}`);
+};
 
 let motnFetch = (ttcode) => {
   const options = {
@@ -37,13 +37,13 @@ let motnFetch = (ttcode) => {
       let wtwDiv = document.getElementById(`wtw-${ttcode}`);
       let wtwTrailer = document.createElement("div");
       wtwTrailer.innerHTML = `
-        <button onclick="test3('${response.result.imdbId}','${response.result.youtubeTrailerVideoId}')"><a href="#id${response.result.imdbId}" data-toggle="modal">Watch Trailer</a></button>
+        <button onclick="watchTrailerFunc('${response.result.imdbId}','${response.result.youtubeTrailerVideoId}')"><a href="#id${response.result.imdbId}" data-toggle="modal">Watch Trailer</a></button>
         <div id="id${response.result.imdbId}" class="modal" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">${response.result.title}</h5>
-                        <button type="button" class="close" data-dismiss="modal" id="youtube-trailer" onclick="test(${response.result.imdbId});">&times;</button>                
+                        <button type="button" class="close" data-dismiss="modal" id="youtube-trailer" onclick="closeTrailerFunc(${response.result.imdbId});">&times;</button>                
             </div>
                     <div class="modal-body">
                         <div class="embed-responsive embed-responsive-16by9">
@@ -56,18 +56,12 @@ let motnFetch = (ttcode) => {
       `;
       wtwDiv.appendChild(wtwTrailer);
 
-
-
-
       for (services in response.result.streamingInfo.us) {
         for (const object in response.result.streamingInfo.us[services]) {
-          /* Creating a new div element. */
           const newDiv = document.createElement("div");
-          /* Creating a new div element and adding the innerHTML to it. */
           newDiv.innerHTML = `
                     <button><a href="${response.result.streamingInfo.us[services][object].link}" target="_blank">${services}: ${response.result.streamingInfo.us[services][object].type}</a></button>
                     `;
-          /* Appending the newDiv to the wtwDiv. */
           wtwDiv.appendChild(newDiv);
         }
       }
@@ -111,14 +105,19 @@ const movieTvTitleFetch = (title) => {
     })
     .catch((err) => console.error(err));
 };
+
 input.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
+    const div = document.querySelector("div");
+    div.innerHTML = " ";
     movieTvTitleFetch(input.value);
   }
 });
 
 searchBtn.addEventListener("click", (event) => {
   event.preventDefault();
+  const div = document.querySelector("div");
+  div.innerHTML = " ";
   movieTvTitleFetch(input.value);
-})
+});
