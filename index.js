@@ -1,6 +1,6 @@
 // JavaScript
 
-let motnButton = document.getElementById("motn-fetch-btn");
+let searchBtn = document.getElementById("search-btn");
 const imdbFetchBtn = document.getElementById("imdb-fetch-btn");
 const mediaContainer = document.getElementById("media-container");
 let input = document.querySelector("input");
@@ -8,29 +8,6 @@ let input = document.querySelector("input");
 let services = [];
 let info = [];
 
-// This is a test function so we don't use all of our IMDb calls
-motnButton.addEventListener("click", (ttcode) => {
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": `${motnKey}`,
-      "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com",
-    },
-  };
-
-  fetch(
-    `https://streaming-availability.p.rapidapi.com/v2/get/basic?country=us&imdb_id=tt1877830`,
-    options
-  )
-    .then((response) => response.json())
-    .then((response) => {
-      console.log("resonse", response);
-      for (const property in response.result.streamingInfo.us) {
-        console.log(property);
-      }
-    })
-    .catch((err) => console.error(err));
-});
 const test = (frameID) => {
   console.log(frameID)
   document.getElementById(`${frameID.id}`).setAttribute('src',' ')
@@ -140,3 +117,8 @@ input.addEventListener("keypress", function (event) {
     movieTvTitleFetch(input.value);
   }
 });
+
+searchBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  movieTvTitleFetch(input.value);
+})
