@@ -10,6 +10,8 @@
 
 /* #fc00fc */
 
+/* #771800 */
+
 html, body {
     max-width: 100%;
 
@@ -90,4 +92,38 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+button {
+    background-color: rgb(140, 140, 140);
+    color: #AAE60D;
+    padding: 15px 32px;
+    /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); */
+    border: none;
+    border-radius: 15px;
+}
+
+button:hover {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); 
+}
+
+button:invalid {
+    cursor: not-allowed;
+}
+
+a {
+    color: #AAE60D;
+    text-decoration: none;
+}
+
+.wtw {
+    background-color: rgb(100, 100, 100);
+}
+
+.wtw:disabled {
+    cursor: not-allowed;
+}
+
+.fill-space {
+    height: 100px;
 }

@@ -70,7 +70,7 @@ let motnFetch = (ttcode) => {
             </div>
                     <div class="modal-body">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe id="${response.result.imdbId}" class="embed-responsive-item" width="560" height="315" src="https://ww.youtube.com/embed/${response.result.youtubeTrailerVideoId}" allowfullscreen></iframe>
+                            <iframe id="${response.result.imdbId}" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/${response.result.youtubeTrailerVideoId}" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -94,6 +94,8 @@ let motnFetch = (ttcode) => {
           wtwDiv.appendChild(newDiv);
         }
       }
+
+      document.getElementById(`${ttcode}`).disabled = true;
     })
     .catch((err) => console.error(err));
 };
@@ -121,7 +123,7 @@ const movieTvTitleFetch = (title) => {
                 <div id="card-div-id" class="card-body">
                     <h5 class="card-title">${e.l}</h5>
                     <p>Starring: ${e.s}</p>
-                    <button type="button" onclick='motnFetch("${e.id}")'>Where to Watch</button>
+                    <button id="${e.id}" class="wtw" type="button" onclick='motnFetch("${e.id}")'>Where to Watch</button>
                     <div id="wtw-${e.id}"></div>
                 </div>
             </div>
