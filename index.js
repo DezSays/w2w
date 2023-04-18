@@ -7,16 +7,12 @@ let services = [];
 let info = [];
 
 const closeTrailerFunc = (frameID) => {
-  console.log(frameID);
-  document.getElementById(`${frameID.id}`).setAttribute("src", " ");
-  console.log("38", tval.src);
+  frameID[1].setAttribute("src", " ");
 };
 
 const watchTrailerFunc = (frameID, URL) => {
-  console.log(frameID, URL);
-  let tval = document
-    .getElementById(`${frameID}`)
-    .setAttribute("src", `https://www.youtube.com/embed/${URL}`);
+  let tval = document.getElementById(`${frameID}`);
+  tval.setAttribute("src", `https://www.youtube.com/embed/${URL}`);
 };
 
 let motnFetch = (ttcode) => {
@@ -46,7 +42,7 @@ let motnFetch = (ttcode) => {
                         <button type="button" class="close" data-dismiss="modal" id="youtube-trailer" onclick="closeTrailerFunc(${response.result.imdbId});">&times;</button>                
             </div>
                     <div class="modal-body">
-                        <div class="embed-responsive embed-responsive-16by9">
+                        <div class="embed-responsive embed-responsive-16by9"> 
                             <iframe id="${response.result.imdbId}" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/${response.result.youtubeTrailerVideoId}" allowfullscreen></iframe>
                         </div>
                     </div>
