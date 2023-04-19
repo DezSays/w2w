@@ -30,7 +30,7 @@ body {
 
 .search-bar {
   padding: 5vh;
-  text-align: center;
+  text-align: center;  
 }
 
 .card-img-top {
@@ -62,23 +62,12 @@ body {
 }
 
 .footer {
-  /* position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #fc00fc;
-    color: white;
-    text-align: center;
-    font-size: 20px; */
-
-  height: 50px;
+  height: 6vh;
   width: 50%;
   position: fixed;
   z-index: 1;
   bottom: 0;
   overflow-x: hidden;
-
-  font-size: 20px;
   background-color: #fc00fc;
   color: #fcfb00;
 }
@@ -97,6 +86,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  font-size: small;
 }
 
 button {
@@ -131,4 +121,11 @@ a {
 
 .fill-space {
   height: 100px;
+}
+
+#input-box{
+  height: 6vh;
+  border-radius: 10px;
+  width:20%;
+  text-align: center;
 }
