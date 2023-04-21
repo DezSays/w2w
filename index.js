@@ -2,8 +2,6 @@ let searchBtn = document.getElementById("search-btn");
 const imdbFetchBtn = document.getElementById("imdb-fetch-btn");
 const mediaContainer = document.getElementById("media-container");
 let input = document.querySelector("input");
-const imdbKey = process.env.IMDB_KEY;
-const motnKey = process.env.MOTN_KEY;
 
 let services = [];
 let info = [];
