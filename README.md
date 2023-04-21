@@ -7,6 +7,7 @@
 ##Live Sites 
 ---
 
+
 <a alt="W2W" href="https://where2watch.netlify.app/">
 <img alt="w2w live site" src="./search-results-screenshot.png" />
 </a>
@@ -37,12 +38,12 @@ The MVP included:
 ##Screenshots
 ---
 
-![Landing Page](./onload-screenshot.png)
+![Landing Page](./images/onload-screenshot.png)
 
-![Search Result](./search-results-screenshot.png)
+![Search Result](./images/search-results-screenshot.png)
 
-![Where to Watch](./where-to-watch-results-screenshot.png)
+![Where to Watch](./images/where-to-watch-results-screenshot.png)
 
-![Trailer](./trailer-screenshot.png)
+![Trailer](./images/trailer-screenshot.png)
 
 
