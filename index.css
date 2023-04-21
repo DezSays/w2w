@@ -129,3 +129,13 @@ a {
   width:20%;
   text-align: center;
 }
+
+#media-container{
+  display: flex;
+  justify-content: center;
+}
+
+#init-col{
+  width:70%;
+  font-size: xx-large;
+}

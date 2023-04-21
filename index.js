@@ -83,6 +83,7 @@ const movieTvTitleFetch = (title) => {
       let dataArr = data.d;
       dataArr.forEach((e) => {
         const div = document.createElement("div");
+        mediaContainer.style.justifyContent = "left"
         div.innerHTML = `
         <div class="col">
             <div class="card">
