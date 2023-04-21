@@ -8,7 +8,7 @@
 ---
 
 <a alt="W2W" href="#deploy-link">
-<img alt="w2w live site" src="./search-results-screenshot.png" />
+<img alt="w2w live site" src="./images/search-results-screenshot.png" />
 </a>
 
 ##What It Is
@@ -37,12 +37,12 @@ The MVP included:
 ##Screenshots
 ---
 
-![Landing Page](./onload-screenshot.png)
+![Landing Page](./images/onload-screenshot.png)
 
-![Search Result](./search-results-screenshot.png)
+![Search Result](./images/search-results-screenshot.png)
 
-![Where to Watch](./where-to-watch-results-screenshot.png)
+![Where to Watch](./images/where-to-watch-results-screenshot.png)
 
-![Trailer](./trailer-screenshot.png)
+![Trailer](./images/trailer-screenshot.png)
 
 
