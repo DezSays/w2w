@@ -30,7 +30,7 @@ body {
 
 .search-bar {
   padding: 5vh;
-  text-align: center;  
+  text-align: center;
 }
 
 .card-img-top {
@@ -123,19 +123,19 @@ a {
   height: 100px;
 }
 
-#input-box{
+#input-box {
   height: 6vh;
   border-radius: 10px;
-  width:20%;
+  width: 20%;
   text-align: center;
 }
 
-#media-container{
+#media-container {
   display: flex;
   justify-content: center;
 }
 
-#init-col{
-  width:70%;
+#init-col {
+  width: 70%;
   font-size: xx-large;
 }
