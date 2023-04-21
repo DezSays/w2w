@@ -7,7 +7,7 @@
 ##Live Sites 
 ---
 
-<a alt="W2W" href="https://where2watch.netlify.app/">
+<a alt="W2W" target="_blank" href="https://where2watch.netlify.app/">
 <img alt="w2w live site" src="./search-results-screenshot.png" />
 </a>
 
