@@ -3,7 +3,6 @@ const imdbFetchBtn = document.getElementById("imdb-fetch-btn");
 const mediaContainer = document.getElementById("media-container");
 let input = document.querySelector("input");
 
-
 let services = [];
 let info = [];
 
