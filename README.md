@@ -4,7 +4,7 @@
 
 ---
 
-##Live Sites 
+## Live Sites 
 ---
 
 
@@ -12,20 +12,20 @@
 <img alt="w2w live site" src="./images/search-results-screenshot.png" />
 </a>
 
-##What It Is
+## What It Is
 ---
 W2W is an application that fetches data from two different APIs (IMDb and Streaming Availability) to display information about movies and TV shows based on the user's input. W2W allows users to search for titles or actors, and display the request with trailers and links to streaming services. To get started, type a title or actor in the search bar above.
 
 This project was a colaboration between Dezarea Bryan and Tri Vu.
 
-##Tech Stack
+## Tech Stack
 ---
   * Vanilla JS
   * HTML
   * Bootstrap
   * CSS3
 
-##MVP (Minimum Viable Product)
+## MVP (Minimum Viable Product)
 ---  
 The MVP included:
   * Allowing the user to search movies, tv shows, and actors
@@ -35,7 +35,7 @@ The MVP included:
   * Disabling the Where to Watch button after the initial click
   * A mobile responsive design
 
-##Screenshots
+## Screenshots
 ---
 
 ![Landing Page](./images/onload-screenshot.png)
